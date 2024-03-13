@@ -49,8 +49,24 @@
   </nav>
 
   <main class="container">
+      <h2>Recorded Sessions</h2>
+      <div class="row mt-2">
+        <div class="col-9">
+          <video controls src="videos/2.mp4" class="w-100 rounded-4"></video>
+          <p class="h3">Indoor Session 1</p>
+        </div>
+        <div class="col-3">
+        <video controls src="videos/1.mp4" class="w-100 rounded-4"></video>
+        <p>Outside Session 1</p>
+        <video controls src="videos/3.mp4" class="w-100 rounded-4"></video>
+        <p>Indoor Session 2</p>
+        <video controls src="videos/4.mp4" class="w-100 rounded-4"></video>
+        <p>Outside Session 2</p>
+        </div>
+      </div>
 
   </main>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>

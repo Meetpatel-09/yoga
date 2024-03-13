@@ -62,29 +62,22 @@ if (!isset($_SESSION['account_id'])) {
     <img class="w-100" src="yoga-banner.jpg" alt="">
 
     <div class="mt-4">
-      <h3>Videos of yoga classes</h3>
       <div class="d-flex gap-3 justify-content-between">
-        <iframe class="rounded-4" height="215" src="https://www.youtube.com/embed/v7AYKMP6rOE?si=H1A-MQ-KJLmbScrl"
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
-        <iframe class="rounded-4" height="215" src="https://www.youtube.com/embed/wCUI1bwlJqA?si=TMxUfUWmNdvBtsSD"
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
-        <iframe class="rounded-4" height="215" src="https://www.youtube.com/embed/GLy2rYHwUqY?si=fsewgmJXLzqNJKum"
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
-        <iframe class="rounded-4" height="215" src="https://www.youtube.com/embed/CY6QP4ofwx4?si=NxBcyXb_ZgfnVBqK"
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+        <h3>Videos of yoga classes</h3>
+        <a href="">View more</a>
+      </div>
+      <div class="d-flex gap-3 justify-content-between">
+        <video src="videos/1.mp4" class="rounded-4" controls height="215"></video>
+        <video src="videos/2.mp4" class="rounded-4" controls height="215"></video>
+        <video src="videos/3.mp4" class="rounded-4" controls height="215"></video>
       </div>
     </div>
 
     <div class="my-3">
-      <h3>Images of yoga classes</h3>
+      <div class="d-flex gap-3 justify-content-between">
+        <h3>Images of yoga classes</h3>
+        <a href="">View more</a>
+      </div>
       <div class="d-flex justify-content-between">
         <img height="200"
           src="https://images.unsplash.com/photo-1588286840104-8957b019727f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
