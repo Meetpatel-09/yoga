@@ -4,7 +4,7 @@ session_start();
 
 
 if (!isset($_SESSION['account_id'])) {
-  header('location: login.php');
+  // header('location: login.php');
 }
 
 ?>

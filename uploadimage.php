@@ -54,7 +54,7 @@
       <div class="container">
         <form class="" method="POST">
           <div class="mb-3">
-            <label for="validationCustom03" class="form-label">Name</label>
+            <label for="validationCustom03" class="form-label">Title</label>
             <input type="text" class="form-control" name="name" id="inputFName" value="<?php echo $name; ?>">
             <div class="form-text text-danger">
               <?php echo $name_error; ?>
@@ -67,14 +67,14 @@
               <?php echo $image_error; ?>
             </div>
           </div>
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Album</label>
             <select class="form-select" aria-label="Default select example">
               <option selected>Select Album</option>
               <option value="1">Indoor Session</option>
               <option value="2">Outdoor Session</option>
             </select>
-          </div>
+          </div> -->
           <button type="submit" class="btn btn-primary">Upload</button>
         </form>
       </div>
