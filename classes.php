@@ -83,7 +83,7 @@ if (!isset($_SESSION['account_id'])) {
                                     <?php
                                     $sql1 = mysqli_query($conn, "SELECT classes.*, accounts.name as instructor_name, accounts.profile FROM yoga_db.classes join accounts on classes.instructor_id = accounts.account_id");
                                     while ($row = mysqli_fetch_array($sql1)) {
-                                      $link = '/recorded.php/' .  $row['class_id'];
+                                      $link = '/recorded.php?id=' .  $row['class_id'];
                                         ?>
                                         <tr>
                                             <td height="104"><img src="instructor/<?php echo $row['profile'] ?>" width="100"

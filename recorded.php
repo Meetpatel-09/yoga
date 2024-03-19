@@ -1,4 +1,32 @@
 <!doctype html>
+<?php
+
+session_start();
+require_once "config.php";
+
+if (!isset ($_SESSION['account_id'])) {
+  header('location: login.php');
+}
+
+$id = $_GET['id'];
+
+$sql1 = mysqli_query($conn, "SELECT videos.video_id, videos.title, videos.url, classes.name, accounts.name as instructor_name FROM yoga_db.videos join classes on videos.class_id = classes.class_id join accounts on videos.instructor_id = accounts.account_id where videos.class_id = " . $id);
+$i = 0;
+
+$videos = [];
+$titles = [];
+$names = [];
+$iNames = [];
+while ($row = mysqli_fetch_array($sql1)) {
+  array_push($videos, $row["url"]);
+  array_push($titles, $row["title"]);
+  array_push($names, $row["name"]);
+  array_push($iNames, $row["instructor_name"]);
+}
+
+?>
+
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -21,50 +49,68 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Home</a>
+            <a class="nav-link" href="/index.php">Home</a>
           </li>
           <li class="nav-item dropdown active" aria-current="page">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Classes
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="live.php">Live</a></li>
+              <li><a class="dropdown-item" href="/live.php">Live</a></li>
               <li><a class="dropdown-item active" aria-current="page" href="classes.php">Recoreded</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.php">About</a>
+            <a class="nav-link" href="/about.php">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.php">Contact Us</a>
+            <a class="nav-link" href="/contact.php">Contact Us</a>
           </li>
         </ul>
         <form class="d-flex" role="search" action="#">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
-          <a class="btn btn-outline-danger mx-2" type="submit" href="logout.php">Logout</a>
+          <a class="btn btn-outline-danger mx-2" type="submit" href="/logout.php">Logout</a>
         </form>
       </div>
     </div>
   </nav>
 
   <main class="container">
-      <h2>Recorded Sessions</h2>
+
+    <?php if (count($videos) == 0) { ?>
+      <h2>There are no recorded sessions of this class</h2>
+    <?php } else { ?>
+
       <div class="row mt-2">
         <div class="col-9">
-          <video controls src="videos/2.mp4" class="w-100 rounded-4"></video>
-          <p class="h3">Indoor Session 1</p>
+          <?php
+          if ($i == 0 and count($videos) != 0) {
+            $i++;
+            ?>
+            <video controls src="uploads/<?php echo $videos[0] ?>" class="w-100 rounded-4"></video>
+            <p class="h3">
+              <?php echo $titles[0] ?> <br />-Of Class
+              <?php echo $names[0] ?> <br />-By Instructor
+              <?php echo $iNames[0] ?>
+            </p>
+          <?php } ?>
+
         </div>
         <div class="col-3">
-        <video controls src="videos/1.mp4" class="w-100 rounded-4"></video>
-        <p>Outside Session 1</p>
-        <video controls src="videos/3.mp4" class="w-100 rounded-4"></video>
-        <p>Indoor Session 2</p>
-        <video controls src="videos/4.mp4" class="w-100 rounded-4"></video>
-        <p>Outside Session 2</p>
+          <?php
+
+          for ($i = 1; $i < count($videos); $i++) {
+
+            ?>
+            <video controls src="uploads/<?php echo $videos[$i] ?>" class="w-100 rounded-4"></video>
+            <p>
+              <?php echo $titles[$i] ?>
+            </p>
+          <?php } ?>
         </div>
       </div>
-
+    <?php } ?>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

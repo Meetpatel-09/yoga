@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $p_class_id = $email;
 
             if (mysqli_stmt_execute($stmt)) {
-                header("location: instructorclass.php");
+                header("location: instructorvideos.php");
             } else {
                 echo '<script> alert("Someting went wrong") </script>';
             }
