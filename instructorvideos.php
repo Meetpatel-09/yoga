@@ -52,7 +52,63 @@ if (!isset ($_SESSION['role']) and $_SESSION['role'] != 'instructor') {
     </nav>
 
     <main class="container">
-
+        <div style="margin-top: 15px;">
+            <h3 style="text-align: center">Classes Details</h3>
+        </div>
+        <div class="form-design">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-1">
+                    </div>
+                    <div class="col-sm-10">
+                        <div style="text-align: center">
+                            <table width="100%" border="1" class="table">
+                                <tbody>
+                                    <tr>
+                                        <!-- <th width="9%" scope="col">Instructor Photo</th> -->
+                                        <th width="15%" scope="col">Sr. no.</th>
+                                        <th width="15%" scope="col">Video Title</th>
+                                        <th width="35%" scope="col">Video Name</th>
+                                        <th width="15%" scope="col">Class</th>
+                                        <!-- <th width="15%" scope="col">Instructor</th> -->
+                                        <th width="10%" scope="col">Remove</th>
+                                    </tr>
+                                    <?php
+                                    $sql1 = mysqli_query($conn, "SELECT videos.video_id, videos.title, videos.url, classes.name FROM yoga_db.videos join classes on videos.class_id = classes.class_id where videos.instructor_id = " . $_SESSION['account_id']);
+                                    $i = 0;
+                                    while ($row = mysqli_fetch_array($sql1)) {
+                                        $i++;
+                                        ?>
+                                        <tr>
+                                            <!-- <td height="104"><img src="instructor/<?php //echo $row['profile']  ?>" width="100"
+                                                    height="100" alt="" /></td> -->
+                                            <td>
+                                                <?php echo $i ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['title'] ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['url'] ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['name'] ?>
+                                            </td>
+                                            <!-- <td>
+                                                <?php //echo $row['instructor_name']  ?>
+                                            </td> -->
+                                            <td><button type="button" class="btn btn-danger">Remove</button></td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-sm-1">
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

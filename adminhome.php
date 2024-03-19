@@ -73,6 +73,15 @@ if (!isset($_SESSION['role']) and $_SESSION['role'] != 'admin') {
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4 text-center" style="padding:15px;">
+                    <div class="card">
+                        <img src="images/img.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <a href="addimage.php" class="btn btn-primary">Add Image</a>
+                            <a href="manageimages.php" class="btn btn-primary">Manage Images</a>
+                        </div>
+                    </div>
+                </div>
                 <!-- <div class="col-md-3 text-center" style="padding:15px;">
                     <div class="card">
                         <img src="images/subjects-featured-image.png" class="card-img-top" alt="...">

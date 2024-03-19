@@ -16,31 +16,35 @@ $fname = $email = "";
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if (empty ($_POST['fName'])) {
-        $fname_error = "Please Enter your name of class";
+        $fname_error = "Please Enter name of video";
     } else {
         $fname = $_POST['fName'];
     }
 
-    if (empty (trim($_POST['email']))) {
-        $email_error = "Please Enter class description";
+    if ($_POST['inputBranch'] == '') {
+        $email_error = "Please Enter select class";
     } else {
-        $email = $_POST['email'];
+        $email = $_POST['inputBranch'];
     }
-
     if (empty ($fname_error) and empty ($email_error)) {
+        $image = $_FILES['exampleFormControlFile1']['name'];
+        // image file directory
+        $target = "uploads/" . basename($image);
+        move_uploaded_file($_FILES['exampleFormControlFile1']['tmp_name'], $target);
 
 
-        $query = "INSERT INTO classes(name, description, instructor_id) VALUES (?,?,?)";
+        $query = "INSERT INTO videos(title, url, instructor_id, class_id) VALUES (?,?,?, ?)";
 
         $stmt = mysqli_prepare($conn, $query);
 
         if ($stmt) {
 
-            mysqli_stmt_bind_param($stmt, "sss", $p_name, $p_email, $p_gender,);
+            mysqli_stmt_bind_param($stmt, "ssss", $p_name, $p_email, $p_gender, $p_class_id);
 
             $p_name = $fname;
-            $p_email = $email;
+            $p_email = $image;
             $p_gender = $_SESSION['account_id'];
+            $p_class_id = $email;
 
             if (mysqli_stmt_execute($stmt)) {
                 header("location: instructorclass.php");
@@ -96,10 +100,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </nav>
 
     <main class="container">
-    <div class="container card mt-5" style="max-width: 720px;">
+        <div class="container card mt-5" style="max-width: 720px;">
             <form class="p-5" method="POST" enctype="multipart/form-data">
-                <p class="h2">Add Class</p>
-                <!-- <p>Register to get started</p> -->
+                <p class="h2">Add Video</p>
                 <div class="mb-3">
                     <label for="validationCustom03" class="form-label">Name</label>
                     <input type="text" class="form-control" name="fName" id="inputFName" value="<?php echo $fname; ?>">
@@ -108,12 +111,24 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Description</label>
-                    <input type="text" class="form-control" name="email" id="inputEmail4"
-                        value="<?php echo $email; ?>">
-                    <div class="form-text text-danger">
-                        <?php echo $email_error; ?>
-                    </div>
+                    <?php
+                    $sql1 = mysqli_query($conn, "SELECT classes.*, accounts.name as instructor_name, accounts.profile FROM yoga_db.classes join accounts on classes.instructor_id = accounts.account_id where classes.instructor_id = " . $_SESSION['account_id']);
+                    ?>
+                    <label for="inputBranch">Select Class</label>
+                    <select id="inputBranch" name="inputBranch" class="form-control">
+                        <option value="choose" selected>Choose</option>
+                        <?php
+                        while ($row = mysqli_fetch_array($sql1)) {
+                            ?>
+                            <option value="<?php echo $row['class_id'] ?>">
+                                <?php echo $row['name'] ?>
+                            </option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlFile1" class="form-label">Video</label>
+                    <input type="file" class="form-control" id="exampleFormControlFile1" name="exampleFormControlFile1">
                 </div>
                 <button type="submit" class="btn btn-primary">Add</button>
             </form>
