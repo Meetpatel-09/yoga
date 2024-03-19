@@ -78,7 +78,7 @@ if (!isset($_SESSION['account_id'])) {
                                         <th width="15%" scope="col">Name</th>
                                         <th width="29%" scope="col">Description</th>
                                         <th width="15%" scope="col">Instructor</th>
-                                        <th width="10%" scope="col">Remove</th>
+                                        <th width="10%" scope="col">View</th>
                                     </tr>
                                     <?php
                                     $sql1 = mysqli_query($conn, "SELECT classes.*, accounts.name as instructor_name, accounts.profile FROM yoga_db.classes join accounts on classes.instructor_id = accounts.account_id");

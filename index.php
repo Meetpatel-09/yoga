@@ -8,6 +8,8 @@ if (!isset($_SESSION['account_id'])) {
   header('location: login.php');
 }
 
+$sql1 = mysqli_query($conn, "SELECT * FROM yoga_db.images;"); 
+
 ?>
 
 <!doctype html>
@@ -77,21 +79,16 @@ if (!isset($_SESSION['account_id'])) {
     <div class="my-3">
       <div class="d-flex gap-3 justify-content-between">
         <h3>Images of yoga classes</h3>
-        <a href="">View more</a>
+        <!-- <a href="">View more</a> -->
       </div>
-      <div class="d-flex justify-content-between">
-        <img height="200"
-          src="https://images.unsplash.com/photo-1588286840104-8957b019727f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="">
-        <img height="200"
-          src="https://images.unsplash.com/photo-1573384666979-2b1e160d2d08?q=80&w=2139&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="">
-        <img height="200"
-          src="https://images.unsplash.com/photo-1616699002805-0741e1e4a9c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="">
-        <img height="200"
-          src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="">
+      <div class="d-flex flex-wrap justify-content-between">
+        <?php 
+          while ($row = mysqli_fetch_array($sql1)) {
+        ?>  
+      <img height="200"
+          src="<?php echo "imgs/" . $row['url']; ?>"
+          alt="" class="mt-4">
+        <?php } ?>
       </div>
     </div>
 

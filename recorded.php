@@ -13,6 +13,8 @@ $id = $_GET['id'];
 $sql1 = mysqli_query($conn, "SELECT videos.video_id, videos.title, videos.url, classes.name, accounts.name as instructor_name FROM yoga_db.videos join classes on videos.class_id = classes.class_id join accounts on videos.instructor_id = accounts.account_id where videos.class_id = " . $id);
 $i = 0;
 
+
+
 $videos = [];
 $titles = [];
 $names = [];
