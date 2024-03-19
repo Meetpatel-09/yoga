@@ -16,14 +16,14 @@ if (!isset ($_SESSION['role']) and $_SESSION['role'] != 'admin') {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Manage Instructor</title>
+    <title>Live</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Online Yoga</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -51,8 +51,8 @@ if (!isset ($_SESSION['role']) and $_SESSION['role'] != 'admin') {
     </nav>
 
     <main class="container">
-        <div style="margin-top: 15px;">
-            <h3 style="text-align: center">Instructor Details</h3>
+    <div style="margin-top: 15px;">
+            <h3 style="text-align: center">Classes Details</h3>
         </div>
         <div class="form-design">
             <div class="container">
@@ -64,14 +64,14 @@ if (!isset ($_SESSION['role']) and $_SESSION['role'] != 'admin') {
                             <table width="100%" border="1" class="table">
                                 <tbody>
                                     <tr>
-                                        <th width="9%" scope="col">Photo</th>
-                                        <th width="17%" scope="col">Name</th>
-                                        <th width="19%" scope="col">Gender</th>
-                                        <th width="19%" scope="col">Email</th>
-                                        <th width="16%" scope="col">Remove</th>
+                                        <th width="9%" scope="col">Instructor Photo</th>
+                                        <th width="15%" scope="col">Name</th>
+                                        <th width="29%" scope="col">Description</th>
+                                        <th width="15%" scope="col">Instructor</th>
+                                        <th width="10%" scope="col">Remove</th>
                                     </tr>
                                     <?php
-                                    $sql1 = mysqli_query($conn, "SELECT * FROM accounts where accounts.role = 'instructor'");
+                                    $sql1 = mysqli_query($conn, "SELECT classes.*, accounts.name as instructor_name, accounts.profile FROM yoga_db.classes join accounts on classes.instructor_id = accounts.account_id");
                                     while ($row = mysqli_fetch_array($sql1)) {
                                         ?>
                                         <tr>
@@ -81,10 +81,10 @@ if (!isset ($_SESSION['role']) and $_SESSION['role'] != 'admin') {
                                                 <?php echo $row['name'] ?>
                                             </td>
                                             <td>
-                                                <?php echo $row['gender'] ?>
+                                                <?php echo $row['description'] ?>
                                             </td>
                                             <td>
-                                                <?php echo $row['email'] ?>
+                                                <?php echo $row['instructor_name'] ?>
                                             </td>
                                             <td><button type="button" class="btn btn-danger">Remove</button></td>
                                         </tr>

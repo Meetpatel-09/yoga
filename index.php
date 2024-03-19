@@ -4,7 +4,7 @@ session_start();
 
 
 if (!isset($_SESSION['account_id'])) {
-  // header('location: login.php');
+  header('location: login.php');
 }
 
 ?>
@@ -61,7 +61,7 @@ if (!isset($_SESSION['account_id'])) {
   <main class="container">
     <img class="w-100" src="yoga-banner.jpg" alt="">
 
-    <div class="mt-4">
+    <!-- <div class="mt-4">
       <div class="d-flex gap-3 justify-content-between">
         <h3>Videos of yoga classes</h3>
         <a href="">View more</a>
@@ -71,7 +71,7 @@ if (!isset($_SESSION['account_id'])) {
         <video src="videos/2.mp4" class="rounded-4" controls height="215"></video>
         <video src="videos/3.mp4" class="rounded-4" controls height="215"></video>
       </div>
-    </div>
+    </div> -->
 
     <div class="my-3">
       <div class="d-flex gap-3 justify-content-between">
