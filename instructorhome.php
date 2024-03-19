@@ -73,6 +73,15 @@ if (!isset ($_SESSION['role']) and $_SESSION['role'] != 'instructor') {
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4 text-center" style="padding:15px;">
+                    <div class="card">
+                        <img src="images/video.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="addlive.php" class="btn btn-primary">Add Live Session</a>
+                            <a href="instructorlive.php" class="btn btn-primary">View Live Sessions</a>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>

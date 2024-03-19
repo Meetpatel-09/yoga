@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $fname = $_POST['fName'];
     }
 
-    if ($_POST['inputBranch'] == '') {
+    if ($_POST['inputBranch'] == '' or $_POST['inputBranch'] == 'choose') {
         $email_error = "Please Enter select class";
     } else {
         $email = $_POST['inputBranch'];
