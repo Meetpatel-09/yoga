@@ -29,7 +29,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item active" aria-current="page" href="live.php">Live</a></li>
-              <li><a class="dropdown-item" href="recorded.php">Recoreded</a></li>
+              <li><a class="dropdown-item" href="classes.php">Recoreded</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -48,38 +48,8 @@
     </div>
   </nav>
 
-  <main class="container d-flex justify-content-center align-items-center" style="height: 80vh">
-    <div class="p-3 card rounded-4 w-50">
-      <p class="h4">Upload Image</p>
-      <div class="container">
-        <form class="" method="POST">
-          <div class="mb-3">
-            <label for="validationCustom03" class="form-label">Title</label>
-            <input type="text" class="form-control" name="name" id="inputFName" value="<?php echo $name; ?>">
-            <div class="form-text text-danger">
-              <?php echo $name_error; ?>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="image" class="form-label">Choose Image</label>
-            <input type="file" class="form-control" name="image" id="image" value="<?php echo $image; ?>">
-            <div class="form-text text-danger">
-              <?php echo $image_error; ?>
-            </div>
-          </div>
-          <!-- <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Album</label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Select Album</option>
-              <option value="1">Indoor Session</option>
-              <option value="2">Outdoor Session</option>
-            </select>
-          </div> -->
-          <button type="submit" class="btn btn-primary">Upload</button>
-        </form>
-      </div>
+  <main class="container">
 
-    </div>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

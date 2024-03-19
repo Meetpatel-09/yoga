@@ -31,7 +31,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item active" aria-current="page" href="live.php">Live</a></li>
-                            <li><a class="dropdown-item" href="recorded.php">Recoreded</a></li>
+                            <li><a class="dropdown-item" href="classes.php">Recoreded</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">

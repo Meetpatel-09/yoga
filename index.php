@@ -2,6 +2,7 @@
 
 session_start();
 
+require_once "config.php";
 
 if (!isset($_SESSION['account_id'])) {
   header('location: login.php');
@@ -39,7 +40,7 @@ if (!isset($_SESSION['account_id'])) {
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="live.php">Live</a></li>
-              <li><a class="dropdown-item" href="recorded.php">Recoreded</a></li>
+              <li><a class="dropdown-item" href="classes.php">Recoreded</a></li>
             </ul>
           </li>
           <li class="nav-item">
