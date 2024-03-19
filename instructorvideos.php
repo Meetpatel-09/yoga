@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once "config.php";
+
 if (!isset ($_SESSION['role']) and $_SESSION['role'] != 'instructor') {
     header('location: login.php');
 }
@@ -50,32 +52,7 @@ if (!isset ($_SESSION['role']) and $_SESSION['role'] != 'instructor') {
     </nav>
 
     <main class="container">
-        <div style="padding:15px;">
-            <div style="margin-top: 15px;">
-                <h3 style="text-align: center">Welcome</h3>
-            </div>
-            <div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-center" style="margin-top: 15px; ">
-                <div class="col-md-4 text-center" style="padding:15px;">
-                    <div class="card">
-                        <img src="images/classes.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <a href="addclass.php" class="btn btn-primary">Add Class</a>
-                            <a href="instructorclass.php" class="btn btn-primary">Manage Classes</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center" style="padding:15px;">
-                    <div class="card">
-                        <img src="images/video.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <a href="addvideo.php" class="btn btn-primary">Add Video</a>
-                            <a href="instructorvideos.php" class="btn btn-primary">View Videos</a>
-                        </div>
-                    </div>
-                </div>
 
-            </div>
-        </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

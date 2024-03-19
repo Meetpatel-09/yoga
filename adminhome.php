@@ -54,7 +54,7 @@ if (!isset($_SESSION['role']) and $_SESSION['role'] != 'admin') {
             <div style="margin-top: 15px;">
                 <h3 style="text-align: center">Welcome</h3>
             </div>
-            <div class="row row-cols-1 row-cols-md-2 g-4" style="margin-top: 15px;">
+            <div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-center" style="margin-top: 15px;">
                 <div class="col-md-4 text-center" style="padding:15px;">
                     <div class="card">
                         <img src="images/instructor.jpg" class="card-img-top" alt="...">

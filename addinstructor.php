@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 <body>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Online Yoga</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -143,8 +143,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <main class="container">
         <div class="container card" style="max-width: 720px;">
             <form class="p-5" method="POST" enctype="multipart/form-data">
-                <p class="h2">Online Yoga</p>
-                <p>Register to get started</p>
+                <p class="h2">Add Instructor</p>
+                <!-- <p>Register to get started</p> -->
                 <div class="mb-3">
                     <label for="validationCustom03" class="form-label">Name</label>
                     <input type="text" class="form-control" name="fName" id="inputFName" value="<?php echo $fname; ?>">

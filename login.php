@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             return;
         }
 
-        $sql = "SELECT account_id, email, password FROM accounts WHERE email = ?";
+        $sql = "SELECT account_id, email, password, role FROM accounts WHERE email = ?";
 
         $stmt = mysqli_prepare($conn, $sql);
 
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         if ($role == 'user') {
                             header("location: index.php");
                         } else {
-                            header("instructorhome.php");
+                            header("location: instructorhome.php");
                         }
                     } else {
                         $password_error = "Incorrect Password";
@@ -104,9 +104,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" class="form-control" name="password" id="inputPassword4"
-                    value="<?php echo $pwd; ?>">
+                    value="<?php echo $passwor; ?>">
                 <div class="form-text text-danger">
-                    <?php echo $pwd_error; ?>
+                    <?php echo $password_error; ?>
                 </div>
             </div>
             <div class="mb-3 form-check">
