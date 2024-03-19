@@ -64,7 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $p_class_id = $email;
             $p_date = $date;
             $p_time = $time;
-          
+            $p_url = $url;
+
             if (mysqli_stmt_execute($stmt)) {
                 header("location: instructorlive.php");
             } else {
